@@ -1,6 +1,7 @@
 variable "prefix" {}
 variable "environment" {}
 variable "location" {}
+variable "owner" {}
 variable "vm_count" {
   default = 2
 }
@@ -10,5 +11,6 @@ resource "azurerm_resource_group" "main" {
   count    = var.vm_count
   tags = {
     "environment" = "${var.environment}"
+    "owner" = "${var.owner}"
   }
 }
